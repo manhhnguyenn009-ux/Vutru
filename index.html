@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ng Quyên</title>
+    <meta name="description" content="Vũ trụ tình yêu">
+    <meta property="og:title" content="Vũ trụ tình yêu">
+    <meta property="og:description" content="">
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.152.2/build/three.module.js",
+                "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.152.2/examples/jsm/controls/OrbitControls.js"
+      }
+    }
+    </script>
+</head>
+
+<body>
+
+    <div id="container"></div>
+    <audio id="bg-audio" src="ly.mp3" loop preload="auto" muted playsinline></audio>
+
+    <div id="landscape-warning">
+        <div class="warning-content">
+            <h1>Đào Ngọc Quyên</h1>
+            <h1>Tinh Cầu Yêu Thương</h1>
+            <p style="font-size: 0.6em;">xoay màn hình đi nè!</p>
+
+            <div class="stars-bg"></div>
+        </div>
+    </div>
+    <div id="dark-overlay"></div>
+    <div id="info">
+
+    </div>
+    <script>
+        window.dataLove2Loveloom = {
+            template: 'galaxy',
+            data: {
+                ringTexts: ['Đào Ngọc Quyên'],
+                heartImages: []
+            },
+        };
+    </script>
+    <script>
+        (function () {
+            const audio = document.getElementById('bg-audio');
+            try {
+                const bg = window.dataLove2Loveloom?.data?.backgroundMusic;
+                if (bg) audio.src = bg;
+            } catch (e) { }
+            try {
+                const u = new URL(audio.src, window.location.href);
+                if (u.origin !== window.location.origin) {
+                    audio.crossOrigin = 'anonymous';
+                }
+            } catch (e) { }
+
+            let started = false;
+            function tryPlay() {
+                if (!audio) return;
+                if (started) return;
+                started = true;
+                audio.muted = false;
+                const p = audio.play();
+                if (p && typeof p.then === 'function') {
+                    p.then(removeListeners).catch(() => { started = false; });
+                }
+            }
+            function removeListeners() {
+                window.removeEventListener('pointerdown', tryPlay, true);
+                document.removeEventListener('click', tryPlay, true);
+            }
+            window.addEventListener('pointerdown', tryPlay, true);
+            document.addEventListener('click', tryPlay, true);
+        })();
+    </script>
+    <script type="module" src="lang.js"></script>
+</body>
+
+</html>
