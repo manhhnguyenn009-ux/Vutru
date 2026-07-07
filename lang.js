@@ -88,7 +88,7 @@ const heartPointClouds = [];
 const maxDensity = 15000; // mật độ cao nhất khi ít ảnh
 const minDensity = 4000;  // mật độ thấp nhất khi nhiều ảnh
 // Số lượng ảnh tối đa mà chúng ta quan tâm để điều chỉnh
-const maxGroupsForScale = 8;
+const maxGroupsForScale = 18;
 
 let pointsPerGroup;
 
