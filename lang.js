@@ -80,7 +80,7 @@ const heartImages = [
     'img/anh.jpg','img/anh1.jpg','img/anh2.jpg','img/anh3.jpg',
     'img/anh4.jpg','img/anh5.jpg','img/anh6.jpg','img/anh7.jpg','img/anh8.jpg',
     'img/anh9.jpg','img/anh10.jpg','img/anh11.jpg','img/anh12.jpg','img/anh13.jpg',
-    'img/anh14.jpg','imganh15.jpg','imganh16.jpg','imganh17.jpg'
+    'img/anh14.jpg','img/anh15.jpg','img/anh16.jpg','img/anh17.jpg'
 ];
 
 const numGroups = heartImages.length;
